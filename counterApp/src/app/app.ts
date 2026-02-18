@@ -1,23 +1,62 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
 
-  name=""
-  displayName=""
+  task=""
+  taskList:{id:number, task:string}[]=[]
 
-  getName(event:Event) {
-    this.name = (event.target as HTMLInputElement).value
+  addTask(){
+    this.taskList.push({id:this.taskList.length+1,task:this.task})
+    this.task=" "
   }
-  showName() {
-    this.displayName = this.name
+
+  deleteTask(taskID:number){
+    this.taskList=this.taskList.filter(item=>item.id!=taskID)
   }
+  // addTask(){
+  //   this.taskList.push(id:this.taskList.length+1,task:this.task)
+  // }
+
+
+
+
+
+  // display=true
+  // togglediv= true
+  //
+  // hide(){
+  //   this.display=false
+  // }
+  //
+  // show() {
+  //   this.display=true;
+  // }
+  // toggle(){
+  //   this.display=!this.display
+  // }
+  // toggledivision(){
+  //   this.togglediv=!this.togglediv
+  // }
+
+  // name=""
+  // displayName=""
+  //
+  // getName(event:Event) {
+  //   this.name = (event.target as HTMLInputElement).value
+  // }
+  // showName() {
+  //   this.displayName = this.name
+  // }
 
   // protected readonly title = signal('angular-prac');
   // count=0
@@ -29,17 +68,19 @@ export class App {
   //     this.count=this.count+1;
   //   }else if(val=='reset'){
   //     this.count=0;
-  //   }
-  email: string="";
-  setName() {
-    this.displayName ="sahil"
-  }
+  // //   }
+  // email: string="";
+  // setName() {
+  //   this.displayName ="sahil"
+  // }
+  //
+  // getEmail(value: string) {
+  //   this.email=value
+  // }
+  //
+  // setEmail() {
+  //   this.email="def@test.com"
+  // }
 
-  getEmail(value: string) {
-    this.email=value
-  }
 
-  setEmail() {
-    this.email="def@test.com"
-  }
 }

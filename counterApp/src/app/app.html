@@ -1,15 +1,49 @@
-<h1>get and set input field value</h1>
-<h1> User Name is : {{displayName}}</h1>
-<input type="text" value={{name}} (input)="getName($event)">
-<br>
-<br>
-<button (click)="showName()">Get Name</button>
-<button (click)="setName()">Set Name</button>
-<hr>
-<h1>email : {{email}}</h1>
-<input type="email" value="{{email}}" #emailfield>
-<button (click)="getEmail(emailfield.value)">Get Email</button>
-<button (click)="setEmail()">Set Email</button>
+<!--to do List-->
+<h1>To do List</h1>
+<input type="text" [(ngModel)]="task" placeholder="Enter Task">
+<button (click)="addTask()">Add Task</button>
+@for(task of taskList;track task.id){
+  <ul class="task-list">
+    <li>{{task.id}}</li>
+    <li>{{task.task}}</li>
+    <li><button (click)="deleteTask(task.id)">delete</button></li>
+  </ul>
+}
+
+
+<!--<h1>If else | control</h1>-->
+<!--@if (display) {-->
+<!--  <div style="width:100px; height: 100px; background-color: red"></div>-->
+<!--}-->
+
+<!--<button (click)=hide( )>Hide</button>-->
+<!--<button (click)="show()">Show</button>-->
+<!--<button (click)="toggle()">toggle</button>-->
+<!--<hr>-->
+
+<!--@if(togglediv){-->
+<!--  <div style="width:100px; height: 100px; background-color: red"></div>-->
+<!--} @else {-->
+<!--  <div style="width:100px; height: 100px; background-color: black"></div>-->
+<!--}-->
+<!--<button (click)="toggledivision()">toggle</button>-->
+
+<!--set and get field value-->
+<!--<h1>get and set input field value</h1>-->
+<!--<h1> User Name is : {{displayName}}</h1>-->
+<!--<input type="text" value={{name}} (input)="getName($event)">-->
+<!--<br>-->
+<!--<br>-->
+<!--<button (click)="showName()">Get Name</button>-->
+<!--<button (click)="setName()">Set Name</button>-->
+<!--<hr>-->
+<!--<h1>email : {{email}}</h1>-->
+<!--<input type="email" value="{{email}}" #emailfield>-->
+<!--<button (click)="getEmail(emailfield.value)">Get Email</button>-->
+<!--<button (click)="setEmail()">Set Email</button>-->
+
+
+
 <!--<h1>Counter App</h1>-->
 <!--<div style="text-align: center">-->
 <!--  <h2 class="count">{{count}}</h2>-->
