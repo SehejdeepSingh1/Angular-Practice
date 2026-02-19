@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, NgForm} from '@angular/forms';
+import {NgFor} from '@angular/common';
 
 @Component({
   selector: 'app-root',
   imports: [
-    FormsModule
+    NgFor
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -27,7 +28,7 @@ export class App {
   //   this.taskList.push(id:this.taskList.length+1,task:this.task)
   // }
 
-
+  students=["sehej","sahil"]
 
 
 
