@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import {FormsModule, NgForm} from '@angular/forms';
-import {NgFor} from '@angular/common';
+import {Header} from './header/header';
 
 @Component({
   selector: 'app-root',
   imports: [
-    NgFor
+    RouterOutlet,Header
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
