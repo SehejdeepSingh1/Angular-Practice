@@ -1,21 +1,29 @@
 import { Component, signal } from '@angular/core';
-import {FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators} from '@angular/forms';
-import {User} from './user/user';
+// import {FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators} from '@angular/forms';
+// import {User} from './user/user';
 import {CommonModule} from '@angular/common';
 import {Product} from './services/product';
+import{OnInit} from '@angular/core';
 
 
 @Component({
   selector: 'app-root',
   imports: [
-    CommonModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  constructor(productservice:Product ) {
+  productList:any[]=[];
+  constructor(private productservice:Product) {
 
+  }
+
+  ngOnInit(){
+    this.productservice.getProductList().subscribe((data:User)=>{
+      console.log("Working")
+      this.productList=data.products;
+    })
   }
 
 
