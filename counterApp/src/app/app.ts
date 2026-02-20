@@ -1,25 +1,37 @@
 import { Component, signal } from '@angular/core';
 import {FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators} from '@angular/forms';
+import {User} from './user/user';
+import {CommonModule} from '@angular/common';
+import {Product} from './services/product';
 
 
 @Component({
   selector: 'app-root',
   imports: [
-    ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  profileForm=new FormGroup({
-    name:new FormControl([Validators.required]),
-    password:new FormControl([Validators.minLength(5),Validators.required]),
-    email:new FormControl([Validators.required,Validators.maxLength(50)]),
-  })
+  constructor(productservice:Product ) {
 
-  onSubmit(){
-    console.log("Onsubmit called")
   }
+
+
+
+
+
+
+  // profileForm=new FormGroup({
+  //   name:new FormControl([Validators.required]),
+  //   password:new FormControl([Validators.minLength(5),Validators.required]),
+  //   email:new FormControl([Validators.required,Validators.maxLength(50)]),
+  // })
+  //
+  // onSubmit(){
+  //   console.log("Onsubmit called")
+  // }
 
 
   // task=""
@@ -91,8 +103,4 @@ export class App {
   // setEmail() {
   //   this.email="def@test.com"
   // }
-
-
-  protected readonly onsubmit = onsubmit;
-  protected readonly name = name;
 }
