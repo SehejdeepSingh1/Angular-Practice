@@ -1,7 +1,18 @@
-<h1>Basic routing in angular</h1>
-<app-header></app-header>
-<router-outlet>
-</router-outlet>
+<h1>Form grouping in reactive forms</h1>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()  ">
+  <input type="text" placeholder="Enter your name" formControlName="name">
+  <br>
+  <input type="text" placeholder="Enter your password" formControlName="password">
+  <br>
+  <input type="text" placeholder="Enter your email" formControlName="email">
+  <br>
+  <button>submit</button>
+</form>
+
+<!--<h1>Basic routing in angular</h1>-->
+<!--<app-header></app-header>-->
+<!--<router-outlet>-->
+<!--</router-outlet>-->
 
 <!--&lt;!&ndash;ngIfimplementation&ndash;&gt;-->
 <!--<h1>ngIf Implementation</h1>-->

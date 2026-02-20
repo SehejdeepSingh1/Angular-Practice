@@ -1,34 +1,43 @@
 import { Component, signal } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
-import {FormsModule, NgForm} from '@angular/forms';
-import {Header} from './header/header';
+import {FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet,Header
+    ReactiveFormsModule,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
+  profileForm=new FormGroup({
+    name:new FormControl([Validators.required]),
+    password:new FormControl([Validators.minLength(5),Validators.required]),
+    email:new FormControl([Validators.required,Validators.maxLength(50)]),
+  })
 
-  task=""
-  taskList:{id:number, task:string}[]=[]
-
-  addTask(){
-    this.taskList.push({id:this.taskList.length+1,task:this.task})
-    this.task=" "
+  onSubmit(){
+    console.log("Onsubmit called")
   }
 
-  deleteTask(taskID:number){
-    this.taskList=this.taskList.filter(item=>item.id!=taskID)
-  }
+
+  // task=""
+  // taskList:{id:number, task:string}[]=[]
+  //
   // addTask(){
-  //   this.taskList.push(id:this.taskList.length+1,task:this.task)
+  //   this.taskList.push({id:this.taskList.length+1,task:this.task})
+  //   this.task=" "
   // }
-
-  students=["sehej","sahil"]
+  //
+  // deleteTask(taskID:number){
+  //   this.taskList=this.taskList.filter(item=>item.id!=taskID)
+  // }
+  // // addTask(){
+  // //   this.taskList.push(id:this.taskList.length+1,task:this.task)
+  // // }
+  //
+  // students=["sehej","sahil"]
 
 
 
@@ -84,4 +93,6 @@ export class App {
   // }
 
 
+  protected readonly onsubmit = onsubmit;
+  protected readonly name = name;
 }
